@@ -1,5 +1,5 @@
 # IMDB-Get
-IMDB-Get is a cross platform desktop application that can be used to get information about movies from IMDB website using the OMDb API.
+IMDB-Get is a cross-platform desktop application that can be used to get information about movies from IMDB website using the OMDb API.
 
 ![main_window](https://user-images.githubusercontent.com/29783425/214784391-f5933d90-f7b8-4494-b352-79d6cbea3fd1.png)
 
