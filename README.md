@@ -3,47 +3,68 @@ IMDB-Get is a cross platform desktop application that can be used to get informa
 
 ## Features
 1- Search a movie by the name and production year.
+
 2- Bulk search, and view the result inside the application.
+
 3- Search a local folder, list all the movies inside that folder, and view the result inside the application.
+
 4- Organize local multimedia files based on IMDB rating, and age rating.
+
 5- Save the data of the movies, so you can view them later without internet connection.
+
 6- Translate the local multimedia files and the folders contains these files.
+
 7- Restore any changes done by the application in case of errors.
 
 ## How to install
 The application comes with an installer that can be used to install the application, follow these instruction to install the application:
+
 1- Install Python and Tkinter.
+
 2- Open `installer.py`, and click Install.
+
 The installer will download the required python modules, and copy the files of the application to the installation folder, then create start menu and desktop shortcuts.
 
 ## How to use
 
 ### Search a movie
 Write the name of the movie and press search or enter from the keyboard.
+
 You can enter the year of the movie for precious result.
+
 Tick `clear previous search` to delete downloaded data about the same name you searched before, and download new data.
 
 ### Import a list
 1- Create a text file, and write all the names of the movies you want to search.
+
 2- Click `import a list` and locate the text file.
+
 You can add the production year of the movies to the name of the movies, and the application will use it for better results.
+
 3- The application will start downloading info of the movies inside the text file.
+
 The application stores these data to an excel file inside the folder of the application, and views them using `Excel Viewer`.
 
 ### Open a folder
 If you have a local folder contains multimedia files, the application offer many features that can help you organize these multimedia files.
 
 1- Click `open a folder` and locate the folder contains all the movies in your machine.
+
 2- The application will list all the multimedia files found in the main folder and all folders under that folder.
+
 3- The application will try to filter the filenames to extract the correct the name of the movies.
+
 4- If there is any unwanted extra additions to the movie names, you can either add these extra additions to the blocklist and try again, or you can click the movie name, and press `edit selection`, and change the movie name. Furthermore, you can press `view original names` to view the filenames of the listed files.
+
 5- Press `start`, and the application will start downloading the data of the movies.
+
 6- The application will create an excel contains all the downloaded data, and view them inside the application.
 
 You can go to `options`, and you will find a lot of options that can help you organize the files and folders opened using IMDB-Get.
 
 ### Excel viewer
 After you import a list, or open a folder, the downloaded data are stored in an excel file inside the opened folder, or the application folder. You can view these excel file using `Excel viewer` without having to install any external applications.
+
 Excel viewer opens that last created excel file automatically, but you can view any excel file created using IMDB-Get.
 
 ### Edit blocklist
