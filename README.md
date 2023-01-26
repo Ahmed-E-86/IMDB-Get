@@ -1,6 +1,8 @@
 # IMDB-Get
 IMDB-Get is a cross platform desktop application that can be used to get information about movies from IMDB website using the OMDb API.
 
+![main_window](https://user-images.githubusercontent.com/29783425/214784391-f5933d90-f7b8-4494-b352-79d6cbea3fd1.png)
+
 ## Features
 1- Search a movie by the name and production year.
 
@@ -34,6 +36,8 @@ You can enter the year of the movie for precious result.
 
 Tick `clear previous search` to delete downloaded data about the same name you searched before, and download new data.
 
+![movie_viewer](https://user-images.githubusercontent.com/29783425/214784470-183794ab-02ce-45a6-a85b-629362b8d574.png)
+
 ### Import a list
 1- Create a text file, and write all the names of the movies you want to search.
 
@@ -45,20 +49,26 @@ You can add the production year of the movies to the name of the movies, and the
 
 The application stores these data to an excel file inside the folder of the application, and views them using `Excel Viewer`.
 
+![import_a_list](https://user-images.githubusercontent.com/29783425/214784727-f2b41f4a-72d4-420d-8f0f-9c1acfe2bede.png)
+
 ### Open a folder
 If you have a local folder contains multimedia files, the application offer many features that can help you organize these multimedia files.
 
 1- Click `open a folder` and locate the folder contains all the movies in your machine.
 
-2- The application will list all the multimedia files found in the main folder and all folders under that folder.
+2- The application will list all the multimedia files found in the main folder and all sub-folders under that folder.
 
 3- The application will try to filter the filenames to extract the correct the name of the movies.
 
 4- If there is any unwanted extra additions to the movie names, you can either add these extra additions to the blocklist and try again, or you can click the movie name, and press `edit selection`, and change the movie name. Furthermore, you can press `view original names` to view the filenames of the listed files.
 
+![movie_names](https://user-images.githubusercontent.com/29783425/214784872-e3dd11a1-8b36-4537-b3a7-e33ffb23526b.png)
+
 5- Press `start`, and the application will start downloading the data of the movies.
 
 6- The application will create an excel contains all the downloaded data, and view them inside the application.
+
+![excel_viewer](https://user-images.githubusercontent.com/29783425/214784966-eeb63b6f-2fa9-4053-b68a-311e5c0e4268.png)
 
 You can go to `options`, and you will find a lot of options that can help you organize the files and folders opened using IMDB-Get.
 
@@ -75,6 +85,8 @@ The application stores information about opened files and folders, and store the
 After pressing `undo last operation`, it will undo the last changes done to the last opened folder, but keep in mind that the files and folder you modify afterwards will not be restored.
 
 ### Options
+
+![options](https://user-images.githubusercontent.com/29783425/214785092-a27a1162-da26-41fa-8be9-f53f14d7a164.png)
 
 #### API key
 The application uses OMDB API to get the information of the movies, but OMDB requires an API key, which you can easily get by following this link -> [https://www.omdbapi.com/apikey.aspx](https://www.omdbapi.com/apikey.aspx)
