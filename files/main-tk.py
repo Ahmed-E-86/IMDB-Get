@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import log
-import code
 import subprocess
+import code
 import configparser
 import tkinter as tk
 from tkinter import ttk
