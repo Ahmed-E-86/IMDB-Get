@@ -6,7 +6,7 @@ IMDB-Get is a cross-platform desktop application that can be used to get informa
 ## Features
 1- Search a movie by the name and production year.
 
-2- Bulk search, and view the result inside the application.
+2- Search a list of movies, and view the result inside the application.
 
 3- Search a local folder, list all the movies inside that folder, and view the result inside the application.
 
