@@ -27,6 +27,8 @@ The application comes with an installer that can be used to install the applicat
 
 The installer will download the required python modules, and copy the files of the application to the installation folder, then create start menu and desktop shortcuts.
 
+The installer should work on Windows, Mac OS, and Linux, but if you use Ubuntu 23.04 or any Linux distribution based on it, the installer will not work, mainly because the developers of Ubuntu decided to block pip installation staring from Ubuntu 23.04.
+
 ## How to use
 
 ### Search a movie
