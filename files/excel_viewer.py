@@ -2,7 +2,7 @@ import log
 import subprocess
 import tkinter as tk
 from tkinter import ttk
-from tkinter.messagebox import showerror
+from tkinter.messagebox import askyesno, showinfo, showerror
 from tkinter.scrolledtext import ScrolledText
 from tkinter import filedialog as fd
 import sys

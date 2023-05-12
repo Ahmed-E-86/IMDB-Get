@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import log
 import subprocess
-import code
+import code_1
 import configparser
 import tkinter as tk
 from tkinter import ttk
@@ -176,12 +176,12 @@ class App(tk.Tk):
         else:
             initialdir = main_dir
             log.logger.debug('Last location is not saved yet.')
-        code.opened_dir = fd.askdirectory(title='open a directory', initialdir=initialdir)
+        code_1.opened_dir = fd.askdirectory(title='open a directory', initialdir=initialdir)
         # Check if the open dialog is canceled
-        if len(code.opened_dir) > 0:
-            log.logger.debug('Main directory: %s' %code.opened_dir)
+        if len(code_1.opened_dir) > 0:
+            log.logger.debug('Main directory: %s' %code_1.opened_dir)
             with open(os.path.join(main_dir, 'last_location'), 'w') as file:
-                file.write(os.path.realpath(code.opened_dir))
+                file.write(os.path.realpath(code_1.opened_dir))
         else:
             log.logger.debug('Open dialog is cancelled, trying again...')
             return None
@@ -215,7 +215,7 @@ class App(tk.Tk):
         # Open a folder
         self.open_folder()
         # Check main directory
-        if code.opened_dir == () or code.opened_dir == '':
+        if code_1.opened_dir == () or code_1.opened_dir == '':
             self.lower()
             showerror(title='Error!', message='You did not choose any folder,\nplease choose any folder and try again.')
             self.lift()
@@ -236,9 +236,9 @@ class App(tk.Tk):
                 self.lift()
         
         # Store the data of the files to files.json
-        code.Run.create_json_file()
+        code_1.Run.create_json_file()
         # load data of the files from json
-        movie_names, years = code.Run.get_from_json()
+        movie_names, years = code_1.Run.get_from_json()
         # Open movieNames window
         app.withdraw()
         MovieNames(app)
@@ -263,7 +263,7 @@ class MovieNames(tk.Toplevel):
         self.columnconfigure(3, weight=1)
         
         # Update the json file
-        self.thread = Thread(target=code.Run.update_json_file)
+        self.thread = Thread(target=code_1.Run.update_json_file)
         self.after(500, self.thread.start())
 
         # Label
@@ -272,7 +272,7 @@ class MovieNames(tk.Toplevel):
         # Import the list
         n = 0
         self.movie_names = []
-        json_file = open(os.path.join(code.opened_dir, 'files.json'), 'r', encoding="utf-8")
+        json_file = open(os.path.join(code_1.opened_dir, 'files.json'), 'r', encoding="utf-8")
         data = json.load(json_file)
         for loop in range(0, len(data['files'])):
             self.movie_names.append(data['files'][n]['Renamed filename'])
@@ -351,7 +351,7 @@ class MovieNames(tk.Toplevel):
             self.lift()
         else:
             n = 0
-            json_file = open(os.path.join(code.opened_dir, 'files.json'), 'r', encoding="utf-8")
+            json_file = open(os.path.join(code_1.opened_dir, 'files.json'), 'r', encoding="utf-8")
             data = json.load(json_file)
             for loop in range(0, len(data['files'])):
                 if selected in (data['files'][n]['Renamed filename']):
@@ -362,7 +362,7 @@ class MovieNames(tk.Toplevel):
                     break
                 n+=1
             json_file.close()
-            with open(os.path.join(code.opened_dir, 'files.json'), 'w', encoding="utf-8") as json_file:
+            with open(os.path.join(code_1.opened_dir, 'files.json'), 'w', encoding="utf-8") as json_file:
                 json.dump(data, json_file, ensure_ascii=False, indent=4)
             self.listbox.delete(self.index)
             self.listbox.insert(self.index, user_input)
@@ -466,10 +466,10 @@ class ProgressNames(tk.Toplevel):
             self.after(1000, self.load_text)
 
             # Fetch data from OMDB
-            code.Run.process_text(movie_names, years)
+            code_1.Run.process_text(movie_names, years)
 
             # Download posters
-            code.Run.download_posters(code.Poster, path=1)
+            code_1.Run.download_posters(code_1.Poster, path=1)
 
             self.progressbar.stop()
             # Close the window and open the excel file
@@ -551,11 +551,11 @@ class ProgressFiles(tk.Toplevel):
     
     def restore(self):
         # Move all moved files back to the main folder
-        code.Run.move()
+        code_1.Run.move()
         # Restore filenames to their original names
-        code.Run.restore_files()
+        code_1.Run.restore_files()
         # Restore folder-names to their original names
-        code.Run.restore_folders()
+        code_1.Run.restore_folders()
         self.lower()
         showinfo(title='Information', message='Previously renamed files and folders are restored to their original names successfully.')
         self.lift()
@@ -567,7 +567,7 @@ class ProgressFiles(tk.Toplevel):
     def run(self):
         ## Start progressbar
         self.progressbar.start(interval=10)
-        code.Run.run()
+        code_1.Run.run()
         log.logger.info('All operations are finished, you can close now.')
         self.progressbar.stop()
         self.lower()
@@ -579,7 +579,7 @@ class ProgressFiles(tk.Toplevel):
         self.title('Done, you can close now.')
         # Open the created excel file
         app_path = os.path.join(main_dir, 'excel_viewer.py')
-        file_path = os.path.join(code.opened_dir, 'movies.xlsx')
+        file_path = os.path.join(code_1.opened_dir, 'movies.xlsx')
         subprocess.run(['python3', app_path, file_path])
 
 # Original names window
@@ -605,7 +605,7 @@ class OriginalNames(tk.Toplevel):
         # Import the list
         n = 0
         original_names = []
-        json_file = open(os.path.join(code.opened_dir, 'files.json'), 'r', encoding="utf-8")
+        json_file = open(os.path.join(code_1.opened_dir, 'files.json'), 'r', encoding="utf-8")
         data = json.load(json_file)
         for loop in range(0, len(data['files'])):
             original_names.append(data['files'][n]['Original Filename'])
@@ -739,12 +739,12 @@ class Restore(tk.Toplevel):
         self.btn1.image = img1
         self.btn1.grid(row=1, column=0, sticky='ew', padx=5, pady=5)
 
-        if code.opened_dir == '':
+        if code_1.opened_dir == '':
             self.lower()
             showerror(title='File is not found!', message='The backup file is not found.\nChoose a folder that contains the backup file.')
-            code.opened_dir = fd.askdirectory(title='Open a directry', initialdir='/')
+            code_1.opened_dir = fd.askdirectory(title='Open a directry', initialdir='/')
             self.lift()
-            if code.opened_dir == '' or code.opened_dir == ():
+            if code_1.opened_dir == '' or code_1.opened_dir == ():
                 self.lower()
                 showerror(title='error!', message='The backup file is not found, exiting now.')
                 self.destroy()
@@ -773,11 +773,11 @@ class Restore(tk.Toplevel):
 
     def restore(self):
         # Move all moved files back to the main folder
-        code.Run.move()
+        code_1.Run.move()
         # Restore filenames to their original names
-        code.Run.restore_files()
+        code_1.Run.restore_files()
         # Restore folder-names to their original names
-        code.Run.restore_folders()
+        code_1.Run.restore_folders()
         # Activate the buttons after finishing
         self.btn1.state(['!disabled'])
         self.lower()
